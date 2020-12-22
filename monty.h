@@ -18,9 +18,9 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -33,24 +33,24 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 /**
  * struct freedom - to free items
  * @buf: to free buffer
- * @fildes: to free file descrptors
+ * @filedes: to free file descrptors
  * @list_head: to free linked list
- * 
+ *
  * Easy way to access to diferent kind of variable
  * en free malloc from them
  */
 typedef struct freedom
 {
-        char *buf;
-        FILE *filedes;
-        stack_t *list_head;
+	char *buf;
+	FILE *filedes;
+	stack_t *list_head;
 } free_all;
 
 /*Transform into global variable*/
