@@ -11,14 +11,11 @@ void get_f(unsigned int line_number)
 	unsigned int j = 0;
 
 	instruction_t options[] = {
-		{"push", _push},
-		{"pall", _pall},
-		{"pint", _pint},
-		{"pop", _pop},
-		{"swap", _swap},
-		{"add", _add},
-		{"nop", _nop},
-		{"sub", _sub},
+		{"push", _push}, {"pall", _pall},
+		{"pint", _pint}, {"pop", _pop},
+		{"swap", _swap}, {"add", _add},
+		{"nop", _nop}, {"sub", _sub},
+		{"div", _div}, {"mul", _mul},
 		{NULL, NULL}
 	};
 
