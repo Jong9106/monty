@@ -115,7 +115,7 @@ void _mod(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	temp->next->n = (*stack)->next->n / (*stack)->n;
+	temp->next->n = (*stack)->next->n % (*stack)->n;
 	(*stack) = temp->next;
 
 	free(temp);
