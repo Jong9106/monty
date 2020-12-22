@@ -54,7 +54,6 @@ int main(int argc, char **argv)
 	}
 
 	break_free.filedes = fopen(argv[1], "r");
-
 	if (break_free.filedes == NULL)
 	{
 		printf("Error: Can't open file %s\n", argv[1]);
@@ -62,7 +61,14 @@ int main(int argc, char **argv)
 	}
 	while (getline(&break_free.buf, &bytes, break_free.filedes) != EOF &&
 			++line_number)
-		get_f(line_number);
+	{
+		if (break_free.buf)
+		{
+			break_free.buf[strlen(break_free.buf) - 1] = '\0';
+			get_f(line_number);
+		}
+	}
+		
 
 	free(break_free.buf);
 	free_list(break_free.list_head);
