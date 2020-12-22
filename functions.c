@@ -13,6 +13,7 @@ void _push(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 
 	data = strtok(NULL, " ");
+
 	number = check_number(data, line_number);
 
 	new_node = malloc(sizeof(stack_t));
@@ -78,6 +79,14 @@ int check_number(char *data, unsigned int line_number)
 {
 	int i = 0;
 
+	if (data == NULL)
+	{
+		fprintf(stderr, "L %d: usage: push integer\n", line_number);
+		free(break_free.buf);
+		free_list(break_free.list_head);
+		fclose(break_free.filedes);
+		exit(EXIT_FAILURE);
+	}
 	for (i = 0 ; data[i] != '\0' ; i++)
 	{
 		if (data[i] == '-' || (data[i] < '0' || data[i] > '9'))
