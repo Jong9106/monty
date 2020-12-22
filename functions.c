@@ -104,7 +104,7 @@ void _swap(stack_t **stack, unsigned int line_number)
 	stack_t *temp = *stack;
 	int data = 0;
 
-	if (!(*stack)->next)
+	if (!(*stack) || !(*stack)->next)
 	{
 		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
 		free(break_free.buf);
