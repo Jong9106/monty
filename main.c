@@ -1,45 +1,4 @@
 #include "monty.h"
-/**
- *get_f - output format
- *@line_number: line number from monty file
- */
-void get_f(unsigned int line_number)
-{
-	int same = 0;
-	char *opcode = NULL;
-
-	opcode = strtok(break_free.buf, " ");
-
-	instruction_t options[] = {
-		{"push", _push},
-		{"pall", _pall},
-		{NULL, NULL}
-	};
-
-	unsigned int j = 0;
-
-	if (opcode)
-	{
-		for (j = 0 ; options[j].opcode ; j++)
-		{
-			same = strcmp(options[j].opcode, opcode);
-			if (same == 0)
-			{
-				options[j].f(&break_free.list_head, line_number);
-				break;
-			}
-		}
-	}
-	if (options[j].opcode == NULL)
-	{
-		fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
-		free(break_free.buf);
-		if (break_free.list_head)
-			free_list(break_free.list_head);
-		fclose(break_free.filedes);
-		exit(EXIT_FAILURE);
-	}
-}
 
 /**
  * main - Program to read and execute monty file
