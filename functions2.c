@@ -17,6 +17,7 @@ void get_f(unsigned int line_number)
 		{"pop", _pop},
 		{"swap", _swap},
 		{"add", _add},
+		{"nop", _nop},
 		{NULL, NULL}
 	};
 
@@ -120,5 +121,16 @@ void _add(stack_t **stack, unsigned int line_number)
 
 	free(temp);
 
+}
+
+/**
+ * _nop - function to do nothing
+ * @stack: pointer to head pointer
+ * @line_number: line from monty file
+ */
+void _nop(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
 }
 
