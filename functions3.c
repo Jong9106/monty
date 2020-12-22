@@ -127,8 +127,7 @@ void _mod(stack_t **stack, unsigned int line_number)
  * @stack: pointer to head pointer
  * @line_number: line from monty file
  */
-void _coment(stack_t **stack, unsigned int line_number)
+int _coment(void)
 {
-	(void)stack;
-	(void)line_number;
+	return (0);
 }
