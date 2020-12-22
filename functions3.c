@@ -122,12 +122,3 @@ void _mod(stack_t **stack, unsigned int line_number)
 
 }
 
-/**
- * _coment - function to  divide data from nodes
- * @stack: pointer to head pointer
- * @line_number: line from monty file
- */
-int _coment(void)
-{
-	return (0);
-}
