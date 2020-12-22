@@ -16,6 +16,7 @@ void get_f(unsigned int line_number)
 		{"pint", _pint},
 		{"pop", _pop},
 		{"swap", _swap},
+		{"add", _add},
 		{NULL, NULL}
 	};
 
@@ -94,3 +95,29 @@ void free_list(stack_t *stack)
 		free(temp);
 	}
 }
+
+/**
+ * _add - function to add data from nodes
+ * @stack: pointer to head pointer
+ * @line_number: line from monty file
+ */
+void _add(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp = *stack;
+
+	if (!(*stack) || !(*stack)->next)
+	{
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
+		free(break_free.buf);
+		if (break_free.list_head)
+			free_list(break_free.list_head);
+		fclose(break_free.filedes);
+		exit(EXIT_FAILURE);
+	}
+
+	temp->next->n = (*stack)->n + (*stack)->next->n;
+	(*stack) = temp->next;
+	free(temp);
+
+}
+
