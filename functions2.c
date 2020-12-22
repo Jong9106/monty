@@ -20,8 +20,6 @@ void get_f(unsigned int line_number)
 
 	if (opcode)
 	{
-		if (opcode[0] == '#')
-			_coment();
 		for (j = 0 ; options[j].opcode ; j++)
 		{
 			same = strcmp(options[j].opcode, opcode);
@@ -32,6 +30,7 @@ void get_f(unsigned int line_number)
 			}
 		}
 	}
+
 	if (options[j].opcode == NULL)
 	{
 		fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
