@@ -112,8 +112,7 @@ void get_f(unsigned int line_number)
 {
 	int same = 0;
 	char *opcode = NULL;
-
-	opcode = strtok(break_free.buf, " ");
+	unsigned int j = 0;
 
 	instruction_t options[] = {
 		{"push", _push},
@@ -121,7 +120,7 @@ void get_f(unsigned int line_number)
 		{NULL, NULL}
 	};
 
-	unsigned int j = 0;
+	opcode = strtok(break_free.buf, " ");
 
 	if (opcode)
 	{
