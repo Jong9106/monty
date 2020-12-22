@@ -61,6 +61,7 @@ free_all break_free;
 void get_f(unsigned int line_number);
 int check_number(char *data, unsigned int line_number);
 void free_list(stack_t *stack);
+void _add(stack_t **stack, unsigned int line_number);
 
 /*Prototypes in functions*/
 void _push(stack_t **stack, unsigned int line_number);
