@@ -11,19 +11,17 @@ void get_f(unsigned int line_number)
 	unsigned int j = 0;
 
 	instruction_t options[] = {
-		{"push", _push}, {"pall", _pall},
-		{"pint", _pint}, {"pop", _pop},
-		{"swap", _swap}, {"add", _add},
-		{"nop", _nop}, {"sub", _sub},
-		{"div", _div}, {"mul", _mul},
-		{"mod", _mod}, {"#", _coment},
-		{NULL, NULL}
+		{"push", _push}, {"pall", _pall}, {"pint", _pint}, {"pop", _pop},
+		{"swap", _swap}, {"add", _add}, {"nop", _nop}, {"sub", _sub},
+		{"div", _div}, {"mul", _mul}, {"mod", _mod}, {NULL, NULL}
 	};
 
 	opcode = strtok(break_free.buf, " ");
 
 	if (opcode)
 	{
+		if (opcode[0] == '#')
+			_coment();
 		for (j = 0 ; options[j].opcode ; j++)
 		{
 			same = strcmp(options[j].opcode, opcode);
