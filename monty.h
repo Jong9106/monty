@@ -57,6 +57,9 @@ typedef struct freedom
 extern free_all break_free;
 free_all break_free;
 
+/*Prototypes in function 3*/
+void _sub(stack_t **stack, unsigned int line_number);
+
 /*Prototypes in functions 2*/
 void get_f(unsigned int line_number);
 int check_number(char *data, unsigned int line_number);
