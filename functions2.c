@@ -18,7 +18,7 @@ void get_f(unsigned int line_number)
 
 	opcode = strtok(break_free.buf, " ");
 
-	if (opcode)
+	if (opcode && opcode[0] != '#')
 	{
 		for (j = 0 ; options[j].opcode ; j++)
 		{
