@@ -68,7 +68,6 @@ int main(int argc, char **argv)
 			get_f(line_number);
 		}
 	}
-		
 
 	free(break_free.buf);
 	free_list(break_free.list_head);
