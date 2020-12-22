@@ -17,21 +17,28 @@ void get_f(unsigned int line_number)
 	};
 
 	unsigned int j = 0;
-
-	for (j = 0 ; options[j].opcode ; j++)
+	
+	if (opcode)
 	{
-		same = strcmp(options[j].opcode, opcode);
-		if (same == 0)
+		for (j = 0 ; options[j].opcode ; j++)
 		{
-			options[j].f(&break_free.list_head, line_number);
-			return;
+			same = strcmp(options[j].opcode, opcode);
+			if (same == 0)
+			{
+				options[j].f(&break_free.list_head, line_number);
+				break;
+			}
 		}
 	}
-	fprintf(stderr, "L %u: unknown instruction %s\n", line_number, opcode);
-	free(break_free.buf);
-	free_list(break_free.list_head);
-	fclose(break_free.filedes);
-	exit(EXIT_FAILURE);
+	if (options[j].opcode == NULL)
+	{
+		fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
+		free(break_free.buf);
+		if (break_free.list_head)
+			free_list(break_free.list_head);
+		fclose(break_free.filedes);
+		exit(EXIT_FAILURE);
+	}
 }
 
 /**
@@ -56,7 +63,7 @@ int main(int argc, char **argv)
 	break_free.filedes = fopen(argv[1], "r");
 	if (break_free.filedes == NULL)
 	{
-		printf("Error: Can't open file %s\n", argv[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 	while (getline(&break_free.buf, &bytes, break_free.filedes) != EOF &&
