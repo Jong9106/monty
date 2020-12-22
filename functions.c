@@ -54,7 +54,7 @@ void _pall(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * _pint - function to add a node at head
+ * _pint - function to print data form head
  * @stack: pointer to head pointer
  * @line_number: line from monty file
  */
@@ -70,4 +70,26 @@ void _pint(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (*stack)->n);
+}
+
+/**
+ * _pop - function to delete head node
+ * @stack: pointer to head pointer
+ * @line_number: line from monty file
+ */
+void _pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp = *stack;
+
+	if (!*stack)
+	{
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
+		free(break_free.buf);
+		if (break_free.list_head)
+			free_list(break_free.list_head);
+		fclose(break_free.filedes);
+		exit(EXIT_FAILURE);
+	}
+	*stack = temp->next;
+	free(temp);
 }
