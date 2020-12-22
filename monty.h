@@ -61,6 +61,8 @@ free_all break_free;
 void _sub(stack_t **stack, unsigned int line_number);
 void _div(stack_t **stack, unsigned int line_number);
 void _mul(stack_t **stack, unsigned int line_number);
+void _mod(stack_t **stack, unsigned int line_number);
+void _coment(stack_t **stack, unsigned int line_number);
 
 /*Prototypes in functions 2*/
 void get_f(unsigned int line_number);
