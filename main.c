@@ -17,7 +17,7 @@ void get_f(unsigned int line_number)
 	};
 
 	unsigned int j = 0;
-	
+
 	if (opcode)
 	{
 		for (j = 0 ; options[j].opcode ; j++)
