@@ -103,7 +103,7 @@ void free_list(stack_t *stack)
  */
 void _add(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp = *stack;
+	stack_t *temp = (*stack)->next;
 
 	if (!(*stack) || !(*stack)->next)
 	{
@@ -115,9 +115,8 @@ void _add(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	temp->next->n = (*stack)->n + (*stack)->next->n;
-	(*stack)->prev == NULL;
-	(*stack) = temp->next;
+	(*stack)->n = (*stack)->n + (*stack)->next->n;
+	(*stack)->next = temp->next;
 
 	free(temp);
 
