@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 	while (getline(&break_free.buf, &bytes, break_free.filedes) != EOF &&
 			++line_number)
 	{
-		if (break_free.buf)
+		if (break_free.buf && break_free.buf[0] != '#')
 		{
 			break_free.buf[strlen(break_free.buf) - 1] = '\0';
 			get_f(line_number);
