@@ -62,6 +62,7 @@ void get_f(unsigned int line_number);
 void _push(stack_t **stack, unsigned int line_number);
 void _pall(stack_t **stack, unsigned int line_number);
 int check_number(char *data, unsigned int line_number);
+void _pint(stack_t **stack, unsigned int line_number);
 void free_list(stack_t *stack);
 
 #endif /* __MONTY_H__*/
