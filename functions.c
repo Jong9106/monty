@@ -93,3 +93,27 @@ void _pop(stack_t **stack, unsigned int line_number)
 	*stack = temp->next;
 	free(temp);
 }
+
+/**
+ * _swap - function to swap data from nodes
+ * @stack: pointer to head pointer
+ * @line_number: line from monty file
+ */
+void _swap(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp = *stack;
+	int data = 0;
+
+	if (!(*stack)->next)
+	{
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
+		free(break_free.buf);
+		if (break_free.list_head)
+			free_list(break_free.list_head);
+		fclose(break_free.filedes);
+		exit(EXIT_FAILURE);
+	}
+	data = temp->n;
+	temp->n = temp->next->n;
+	temp->next->n = data;
+}
