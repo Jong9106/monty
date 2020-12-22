@@ -81,26 +81,25 @@ int check_number(char *data, unsigned int line_number)
 
 	if (data == NULL)
 	{
-		fprintf(stderr, "L %d: usage: push integer\n", line_number);
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		free(break_free.buf);
 		free_list(break_free.list_head);
 		fclose(break_free.filedes);
 		exit(EXIT_FAILURE);
 	}
-	for (i = 0 ; data[i] != '\0' ; i++)
+
+	if (data[i] == '-')
+		i++;
+	for (; data[i] != '\0' ; i++)
 	{
-		if (data[i] == '-' || (data[i] < '0' || data[i] > '9'))
+		if (data[i] < '0' || data[i] > '9')
 		{
-			fprintf(stderr, "L %d: usage: push integer\n", line_number);
+			fprintf(stderr, "L%u: usage: push integer\n", line_number);
 			free(break_free.buf);
 			free_list(break_free.list_head);
 			fclose(break_free.filedes);
 			exit(EXIT_FAILURE);
 		}
-		else
-		{
-			return (atoi(data));
-		}
 	}
-	return (0);
+	return (atoi(data));
 }
