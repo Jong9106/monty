@@ -57,12 +57,16 @@ typedef struct freedom
 extern free_all break_free;
 free_all break_free;
 
-/*Prototypes*/
+/*Prototypes in functions 2*/
 void get_f(unsigned int line_number);
+int check_number(char *data, unsigned int line_number);
+void free_list(stack_t *stack);
+
+/*Prototypes in functions*/
 void _push(stack_t **stack, unsigned int line_number);
 void _pall(stack_t **stack, unsigned int line_number);
-int check_number(char *data, unsigned int line_number);
 void _pint(stack_t **stack, unsigned int line_number);
-void free_list(stack_t *stack);
+void _pop(stack_t **stack, unsigned int line_number);
+
 
 #endif /* __MONTY_H__*/
