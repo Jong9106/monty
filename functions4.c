@@ -52,3 +52,28 @@ void _pstr(stack_t **stack, unsigned int line_number)
 	putchar(10);
 
 }
+
+/**
+ * _rotl - function change data from head to the end
+ * @stack: pointer to head pointer
+ * @line_number: line from monty file
+ */
+void _rotl(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp = *stack;
+	int data = 0;
+
+	(void)line_number;
+
+	data = tmp->n;
+
+	if (*stack)
+	{
+		while (tmp->next)
+		{
+			tmp->n = tmp->next->n;
+			tmp = tmp->next;
+		}
+		tmp->n = data;
+	}
+}
