@@ -42,28 +42,19 @@ void _pstr(stack_t **stack, unsigned int line_number)
 {
 	char word = 0;
 
-	word += (*stack)->n;
+	(void)line_number;
 
-	if (!*stack)
+	if (!(*stack))
 	{
 		putchar(10);
 	}
 
-	if ((*stack)->n < 0 || (*stack)->n >= 127)
+	while ((*stack) && (*stack)->n > 0 && (*stack)->n <= 127)
 	{
-		fprintf(stderr, "L%u: can't pstr, value out of range\n", line_number);
-		free(break_free.buf);
-		if (break_free.list_head)
-			free_list(break_free.list_head);
-		fclose(break_free.filedes);
-		exit(EXIT_FAILURE);
-	}
-
-	else
-	{
+		word = (*stack)->n;
 		putchar(word);
-		putchar(10);
-
+		(*stack) = (*stack)->next;
 	}
+	putchar(10);
 
 }
