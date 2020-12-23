@@ -18,7 +18,7 @@ void _pchar(stack_t **stack, unsigned int line_number)
 	}
 	if ((*stack)->n <= 0 || (*stack)->n >= 127)
 	{
-		fprintf(stderr, "L%u:  can't pchar, value out of range\n", line_number);
+		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
 		free(break_free.buf);
 		if (break_free.list_head)
 			free_list(break_free.list_head);
