@@ -40,12 +40,14 @@ void _pchar(stack_t **stack, unsigned int line_number)
  */
 void _pstr(stack_t **stack, unsigned int line_number)
 {
+	stack_t *tmp = *stack;
+
 	(void)line_number;
 
-	while ((*stack) && (*stack)->n > 0 && (*stack)->n <= 127)
+	while (tmp && tmp->n > 0 && tmp->n <= 127)
 	{
-		putchar((*stack)->n);
-		(*stack) = (*stack)->next;
+		putchar(tmp->n);
+		tmp = tmp->next;
 	}
 	putchar(10);
 
