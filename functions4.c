@@ -65,10 +65,11 @@ void _rotl(stack_t **stack, unsigned int line_number)
 
 	(void)line_number;
 
-	data = tmp->n;
+
 
 	if (*stack)
 	{
+		data = tmp->n;
 		while (tmp->next)
 		{
 			tmp->n = tmp->next->n;
