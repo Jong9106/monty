@@ -59,7 +59,7 @@ free_all break_free;
 
 /*Prototypes in function 4*/
 void _pchar(stack_t **stack, unsigned int line_number);
-
+void _pstr(stack_t **stack, unsigned int line_number);
 
 /*Prototypes in function 3*/
 void _sub(stack_t **stack, unsigned int line_number);
