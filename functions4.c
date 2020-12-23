@@ -40,19 +40,11 @@ void _pchar(stack_t **stack, unsigned int line_number)
  */
 void _pstr(stack_t **stack, unsigned int line_number)
 {
-	char word = 0;
-
 	(void)line_number;
-
-	if (!(*stack))
-	{
-		putchar(10);
-	}
 
 	while ((*stack) && (*stack)->n > 0 && (*stack)->n <= 127)
 	{
-		word = (*stack)->n;
-		putchar(word);
+		putchar((*stack)->n);
 		(*stack) = (*stack)->next;
 	}
 	putchar(10);
